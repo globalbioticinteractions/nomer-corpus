@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 BUILD_DIR=$(PWD)/target
-STAMP=$(BUILD_DIR)/.$(BUILD_DIR)stamp
+STAMP=$(BUILD_DIR)/.stamp
 
 PRESTON_VERSION:=0.3.1
 PRESTON_JAR:=$(BUILD_DIR)/preston.jar
