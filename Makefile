@@ -11,7 +11,7 @@ NOMER_VERSION:=0.2.5
 NOMER_JAR:=$(BUILD_DIR)/nomer.jar
 NOMER:=java -jar $(NOMER_JAR)
 
-ZENODO_UPLOAD:=https://raw.githubusercontent.com/jhpoelen/zenodo-upload/master/zenodo_upload.sh
+ZENODO_UPLOAD:=$(BUILD_DIR)/zenodo_upload.sh
 ZENODO_DEPOSIT:=5639794
 
 TAXON_GRAPH_URL_PREFIX:=https://zenodo.org/record/5021869/files
@@ -29,7 +29,7 @@ $(STAMP):
 	mkdir -p $(BUILD_DIR) && touch $@
 
 $(PRESTON_JAR): $(STAMP)
-	wget -q "https://github.com/bio-guoda/preston/releases/download/$(PRESTON_VERSION)/preston.jar" -O $(PRESTON_JAR)
+	curl --silent "https://github.com/bio-guoda/preston/releases/download/$(PRESTON_VERSION)/preston.jar" > $(PRESTON_JAR)
 
 clone: $(PRESTON_JAR)
 	$(PRESTON) clone --data-dir=$(PRESTON_DATASET_DIR) $(TAXON_GRAPH_URL_PREFIX)
@@ -42,10 +42,10 @@ update: clone track
 	$(PRESTON) cp --data-dir=$(PRESTON_DATASET_DIR) -p directoryDepth0 $(DIST_DIR)
 
 $(NOMER_JAR): $(STAMP)
-	wget -q "https://github.com/globalbioticinteractions/nomer/releases/download/$(NOMER_VERSION)/nomer.jar" -O $(NOMER_JAR)
+	curl --silent "https://github.com/globalbioticinteractions/nomer/releases/download/$(NOMER_VERSION)/nomer.jar" > $(NOMER_JAR)
 
 $(ZENODO_UPLOAD): $(STAMP)
-	wget -q "https://raw.githubusercontent.com/jhpoelen/zenodo-upload/master/zenodo_upload.sh" -O $(BUILD_DIR}/zenodo_upload.sh
+	curl --silent "https://raw.githubusercontent.com/jhpoelen/zenodo-upload/master/zenodo_upload.sh" >  $(ZENODO_UPLOAD)
 
 package: update $(ZENODO_UPLOAD)
 	cd $(DIST_DIR)
