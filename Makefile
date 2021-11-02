@@ -1,5 +1,5 @@
 SHELL=/bin/bash
-BUILD_DIR=target
+BUILD_DIR=$(PWD)/target
 STAMP=$(BUILD_DIR)/.$(BUILD_DIR)stamp
 
 PRESTON_VERSION:=0.3.1
@@ -16,7 +16,7 @@ ZENODO_DEPOSIT:=5639794
 
 TAXON_GRAPH_URL_PREFIX:=https://zenodo.org/record/5021869/files
 
-DIST_DIR:=dist
+DIST_DIR:=$(PWD)/dist
 
 CURL:=curl --silent -L
 
@@ -50,5 +50,4 @@ $(ZENODO_UPLOAD): $(STAMP)
 	$(CURL) "https://raw.githubusercontent.com/jhpoelen/zenodo-upload/master/zenodo_upload.sh" >  $(ZENODO_UPLOAD)
 
 package: update $(ZENODO_UPLOAD)
-	cd $(DIST_DIR)
-	ls -1 | xargs -L1 bash $(ZENODO_UPLOAD) $(ZENODO_DEPOSIT)
+	cd $(DIST_DIR) && ls -1 | xargs -L1 bash $(ZENODO_UPLOAD) $(ZENODO_DEPOSIT)
