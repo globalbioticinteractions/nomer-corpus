@@ -51,4 +51,4 @@ $(ZENODO_UPLOAD): $(STAMP)
 
 package: update $(ZENODO_UPLOAD)
 	cd $(DIST_DIR)
-	ls -1 | xargs -L1 bash zenodo_upload.sh $(ZENODO_DEPOSIT)
+	ls -1 | xargs -L1 bash $(ZENODO_UPLOAD) $(ZENODO_DEPOSIT)
