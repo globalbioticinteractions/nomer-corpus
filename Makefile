@@ -37,7 +37,7 @@ clone: $(PRESTON_JAR)
 	$(PRESTON) clone --data-dir=$(PRESTON_DATASET_DIR) $(TAXON_GRAPH_URL_PREFIX)
 
 track: $(NOMER_JAR) $(PRESTON_JAR)
-	$(NOMER) properties | grep -o -P 'http([^!])*' | sort | uniq | xargs $(PRESTON) track --data-dir=$(PRESTON_DATASET_DIR)
+	$(NOMER) properties | grep -o -P '(http|ftp)([^!])*' | sort | uniq | xargs $(PRESTON) track --data-dir=$(PRESTON_DATASET_DIR)
 
 update: clone track
 	mkdir -p $(DIST_DIR)
