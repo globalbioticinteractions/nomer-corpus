@@ -2,7 +2,7 @@ SHELL=/bin/bash
 BUILD_DIR=$(PWD)/target
 STAMP=$(BUILD_DIR)/.stamp
 
-PRESTON_VERSION:=0.3.1
+PRESTON_VERSION:=0.3.8
 PRESTON_URL:=https://github.com/bio-guoda/preston/releases/download/$(PRESTON_VERSION)/preston.jar
 PRESTON_JAR:=$(BUILD_DIR)/preston.jar
 PRESTON:=java -jar $(BUILD_DIR)/preston.jar
@@ -15,9 +15,9 @@ NOMER:=java -jar $(NOMER_JAR)
 
 ZENODO_UPLOAD_URL:=https://raw.githubusercontent.com/jhpoelen/zenodo-upload/master/zenodo_upload.sh
 ZENODO_UPLOAD:=$(BUILD_DIR)/zenodo_upload.sh
-ZENODO_DEPOSIT:=5639794
+ZENODO_DEPOSIT:=6473194
 
-TAXON_GRAPH_URL_PREFIX:=https://zenodo.org/record/5021869/files
+TAXON_GRAPH_URL_PREFIX:=https://zenodo.org/record/6127573/files
 
 DIST_DIR:=$(PWD)/dist
 
