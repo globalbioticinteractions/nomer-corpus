@@ -37,7 +37,7 @@ $(PRESTON_JAR): $(STAMP)
 	$(CURL) $(PRESTON_URL) > $(PRESTON_JAR)
 
 clone: $(PRESTON_JAR)
-	$(PRESTON) clone --data-dir=$(PRESTON_DATASET_DIR) $(TAXON_GRAPH_URL_PREFIX)
+	$(PRESTON) ls --data-dir=$(PRESTON_DATASET_DIR) --remote $(TAXON_GRAPH_URL_PREFIX) | grep hash | $(PRESTON) cat --data-dir=$(PRESTON_DATASET_DIR) --remote $(TAXON_GRAPH_URL_PREFIX) > /dev/null
 
 track: $(NOMER_JAR) $(PRESTON_JAR)
 	$(NOMER) properties | grep -o -P '(http|ftp)([^!])*' | sort | uniq > $(BUILD_DIR)/aliases.txt
