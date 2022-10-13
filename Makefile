@@ -2,7 +2,7 @@ SHELL=/bin/bash
 BUILD_DIR=$(PWD)/target
 STAMP=$(BUILD_DIR)/.stamp
 
-PRESTON_VERSION:=0.3.8
+PRESTON_VERSION:=0.4.5
 PRESTON_URL:=https://github.com/bio-guoda/preston/releases/download/$(PRESTON_VERSION)/preston.jar
 PRESTON_JAR:=$(BUILD_DIR)/preston.jar
 PRESTON:=java -jar $(BUILD_DIR)/preston.jar
