@@ -8,7 +8,7 @@ PRESTON_JAR:=$(BUILD_DIR)/preston.jar
 PRESTON:=java -jar $(BUILD_DIR)/preston.jar
 PRESTON_DATASET_DIR:=${BUILD_DIR}/data
 
-NOMER_VERSION:=0.2.5
+NOMER_VERSION:=0.3.1
 NOMER_URL:=https://github.com/globalbioticinteractions/nomer/releases/download/$(NOMER_VERSION)/nomer.jar
 NOMER_JAR:=$(BUILD_DIR)/nomer.jar
 NOMER:=java -jar $(NOMER_JAR)
