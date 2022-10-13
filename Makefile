@@ -17,7 +17,7 @@ ZENODO_UPLOAD_URL:=https://raw.githubusercontent.com/jhpoelen/zenodo-upload/mast
 ZENODO_UPLOAD:=$(BUILD_DIR)/zenodo_upload.sh
 ZENODO_DEPOSIT:=6473194
 
-TAXON_GRAPH_URL_PREFIX:=https://zenodo.org/record/6127573/files
+TAXON_GRAPH_URL_PREFIX:=https://zenodo.org/record/7065661/files
 
 DIST_DIR:=$(PWD)/dist
 
